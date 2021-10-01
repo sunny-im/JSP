@@ -1,6 +1,3 @@
-mySQL
-
-<ORACLE>
 1. 
 ALTER USER HR ACCOUNT UNLOCK IDENTIFIED BY 1234;
 →연습용 계정과 비밀번호 생성
