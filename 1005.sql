@@ -141,4 +141,3 @@ SELECT ename,
         DECODE(deptno, 20, '10%인상','미인상')
 FROM emp;
 
------------------ 10/5 (2)

@@ -161,7 +161,7 @@ OR job_title='Sales Manager';
 - 열의 데이터 타입을 변환.
 
 
-문자  CHAR         - 고정 길이의 문자 타입
+문자  CHAR         - 고정 길이의 문자 타입ㄷ
 문자  VARCHAR2     - 가변 길이의 문자 타입 (실무에서는 이걸 많이 사용)
 숫자  NUMBER (INT) - 숫자 타입을 저장.
 날짜  DATE 
@@ -192,7 +192,7 @@ LPAD / RPAD 특정 문자로 자리수 만들어 채우기
 
 CONCAT 문자열을 연결한다. 
 
-LENGTH 문자열의 길이를 구한다. 
+LENGTH 문자열의 길이를 구한다.  
 
 INSTR 문자의 위치를 구한다. 
 

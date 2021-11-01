@@ -12,7 +12,7 @@ SELECT empno,ename,sal,
     END AS 급여등급
 FROM emp
 WHERE job='SALESMAN';
-
+----------------- 10/5 (2)
 2. 순위매기기
 2-1. RANK 
 공통순위를 출력하되 공통 순위만큼 건너뛰어 다음 순위를 출력  1,2,2,4
@@ -29,6 +29,7 @@ SELECT ename,
         DENSE_RANK() OVER(ORDER BY sal DESC) DENCE_급여,
         ROW_NUMBER() OVER(ORDER BY sal DESC) ROW_급여
 FROM emp;
+
 
 3. 그룹함수
 집계함수, 기준열의 값에 대한 데이터끼리 그룹으로 묶고 
