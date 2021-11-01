@@ -1,2 +1,2 @@
-# SQLclass
+# JSP + SQL
  
