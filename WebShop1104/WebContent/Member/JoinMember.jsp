@@ -28,7 +28,7 @@
    <jsp:include page="/header.jsp" />
    <div class="jumbotron">
       <div class="container">
-         <h3 class="display-3">JOIN</h3>
+         <h3>JOIN</h3><br>
       </div>
    </div>
 

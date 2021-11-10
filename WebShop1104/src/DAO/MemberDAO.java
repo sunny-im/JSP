@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 import javax.naming.NamingException;
 
+import com.mysql.fabric.xmlrpc.base.Member;
+
 import util.ConnectionPool;
 
 public class MemberDAO {
@@ -104,6 +106,75 @@ public class MemberDAO {
 				pstmt.close();
 			if (conn != null)
 				conn.close();
+		}
+	}
+	
+	public MemberObj getView(String cid) throws NamingException, SQLException {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM member WHERE (cid = ?)";
+			
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, cid);
+			rs = pstmt.executeQuery();
+
+			// 방법 1
+//			Member MemberObj = new Member();
+//						
+//			DAO.MemberObj member = null;
+//			while(rs.next()) {
+//				member = new MemberObj(rs.getString("cid"),rs.getString("cpassword"),rs.getString("cname"),rs.getString("cgender"),
+//						rs.getString("cbirth"),rs.getString("cemail"),rs.getString("cphone"),rs.getString("caddress"),rs.getString("cregiday"));
+//			}return member;
+			
+			// 방법 2 
+			rs.next();
+			
+			String id = rs.getString(1);
+			String password = rs.getString(2);
+			String name = rs.getString(3);
+			String gender = rs.getString(4);
+			String birth = rs.getString(5);
+			String email = rs.getString(6);
+			String phone = rs.getString(7);
+			String address = rs.getString(8);
+			String date = rs.getString(9);
+			
+			MemberObj member = new MemberObj(id,password,name,gender,birth,email,phone,address,date);
+			
+			return member;
+			
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+	}
+	
+	public int delete(String cid) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "DELETE FROM member WHERE cid = ?";
+			
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, cid);
+				
+			int count = pstmt.executeUpdate();
+			return (count == 1 ) ? 1 : 0;
+			
+		} finally {
+			conn.close(); pstmt.close();
 		}
 	}
 }

@@ -17,7 +17,7 @@
 		ArrayList<ProductObj> products = (new ProductDAO()).getList();
 	%>
 		<div class = "container">
-			<h1 class = "display-3">Products</h1>
+			<h3>Products</h3><br>
 		</div>	
 	<div class = "container">
 		<div class="row" align="center">
@@ -26,10 +26,10 @@
 			%>
 			<div class="col-md-4">
 				<h3><%=product.getPname() %></h3>
-				<img src = "/images/<%=product.getPfilename()%>" style ="width: 100px; height: 100px;">
+				<img src = "/images/<%=product.getPfilename()%>" style ="width: 50%;">
 				<p><%= product.getPdescription() %>
 				<p><%= product.getPprice() %>원
-				<p><a href="#" class="btn" style="background-color: #ACC7B4;" role="button">Go description &raquo;</a>
+				<p><a href="ProductView.jsp?id=<%=product.getPid() %>" class="btn" style="background-color: #ACC7B4;" role="button">Go description &raquo;</a>
 			</div>
 			<%
 				}

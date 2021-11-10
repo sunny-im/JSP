@@ -18,6 +18,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="/Product/Products.jsp">Product</a></li>
+            <li><a class="dropdown-item" href="/Product/ShippingList.jsp">Order List</a></li>
             <li><a class="dropdown-item" href="#">Cart</a></li>
           </ul>
         </li>
@@ -26,8 +27,8 @@
             Board
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">List</a></li>
-            <li><a class="dropdown-item" href="#">Write</a></li>
+            <li><a class="dropdown-item" href="/Board/BoardList.jsp">List</a></li>
+            <li><a class="dropdown-item" href="/Board/AddBoard.jsp">Write</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -47,6 +48,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="/Product/AddProduct.jsp">Add Product</a></li>
+            <li><a class="dropdown-item" href="/Product/UpdateProduct.jsp">Update Product</a></li>
             <li><a class="dropdown-item" href="/Member/MemberList.jsp">Member List</a></li>
           </ul>
         </li>

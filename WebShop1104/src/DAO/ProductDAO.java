@@ -65,4 +65,52 @@ public class ProductDAO {
 		}
 	}
 
+	public ProductObj getView(String pid) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt= null;
+		ResultSet rs = null;
+	
+		try {
+			String sql = "SELECT * FROM product WHERE (pid = ?)";
+			
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, pid);
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			
+			String id = rs.getString(1);
+			String name = rs.getString(2);
+			String description = rs.getString(3);
+			String price = rs.getString(4);
+			String filename = rs.getString(5);
+			
+			ProductObj product = new ProductObj(id,name,description,price,filename);
+			return product;
+			
+		} finally {
+			rs.close(); pstmt.close(); conn.close();
+		}
+	} 
+	
+	public int delete(String pid) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "DELETE FROM product WHERE pid = ?";
+			
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, pid);
+				
+			int count = pstmt.executeUpdate();
+			return (count == 1 ) ? 1 : 0;
+			
+		} finally {
+			conn.close(); pstmt.close();
+		}
+	}
+	
 }

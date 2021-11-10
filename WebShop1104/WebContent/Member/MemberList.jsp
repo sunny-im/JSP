@@ -12,6 +12,7 @@
 <body>
 	<%@ include file = "/header.jsp" %>
 	
+	<h3>Member List</h3><br>
 	
 	<%
       ArrayList<MemberObj> members = (new MemberDAO()).getList();
@@ -28,18 +29,20 @@
 	  </thead>
 	  <tbody>
             <%
+               int i = members.size();
                for (MemberObj member : members) {
             %>
 		<tr>
-	      <th scope="row">1</th>
+	      <th scope="row"><%=i%></th>
 		      <td><%=member.getCid() %></td>
 		      <td><%=member.getCname() %></td>
 		      <td><%=member.getCemail() %></td>
 		      <td><%=member.getCphone() %></td>
-		      <td><a href="" class="btn btn-secondary" role="button">상세정보 &raquo;</a></td>
+		      <td><a href="MemberView.jsp?id=<%=member.getCid() %>" class="btn" style="background-color: #ACC7B4;" role="button">View &raquo;</a></td>
    		</tr>
    		
          <%
+         i--;
          } 
          %>
 		</tbody>
