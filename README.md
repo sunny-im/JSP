@@ -1,2 +1,2 @@
-# JSP + SQL
+# JSP
  
